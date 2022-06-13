@@ -15,7 +15,7 @@ try {
     throw new Error(ERROR_STRING);
   }
 
-  readlineStream.write(`\x1b[7m\x1b[33m${' '.repeat(WELCOME_STRING.length + 3 + username.length)}${EOL} ${WELCOME_STRING}${username}! \x1b[0m${EOL}\x1b[7m\x1b[33m${' '.repeat(WELCOME_STRING.length + 3 + username.length)}${EOL}\x1b[0m${EOL}`);
+  console.log(`\x1b[7m\x1b[33m${' '.repeat(WELCOME_STRING.length + 3 + username.length)}${EOL} ${WELCOME_STRING}${username}! \x1b[0m${EOL}\x1b[7m\x1b[33m${' '.repeat(WELCOME_STRING.length + 3 + username.length)}${EOL}\x1b[0m`);
   readlineStream.on('line', line => {
     if (line === '.exit') {
       readlineStream.close();
@@ -25,7 +25,7 @@ try {
   });
   readlineStream.on('SIGINT', () => readlineStream.close());
   readlineStream.on('close', () => {
-    console.log(`${EOL}\x1b[7m\x1b[33m${' '.repeat(BYE_STRING.length + 3 + username.length)}${EOL} ${BYE_STRING}${username}! \x1b[0m${EOL}\x1b[7m\x1b[33m${' '.repeat(BYE_STRING.length + 3 + username.length)}${EOL}\x1b[0m${EOL}`);
+    console.log(`${EOL}\x1b[7m\x1b[33m${' '.repeat(BYE_STRING.length + 3 + username.length)}${EOL} ${BYE_STRING}${username}! \x1b[0m${EOL}\x1b[7m\x1b[33m${' '.repeat(BYE_STRING.length + 3 + username.length)}${EOL}\x1b[0m`);
   });
 } catch (error) {
   console.error(`\x1b[41m\x1b[37m ${error} \x1b[0m`);
