@@ -28,14 +28,14 @@ export const lightblueColor = (...strings) => {
 
 const redrawText = (color, strings) => {
   const style = {
-    orangeBgColor:  "\x1b[7m\x1b[33m",
-    redBgColor:     "\x1b[41m\x1b[37m\x1b[5m",
-    greenBgColor:   "\x1b[32m\x1b[7m",
-    redColor:       "\x1b[31m",
-    greenColor:     "\x1b[32m",
-    orangeColor:    "\x1b[33m",
-    lightblueColor:      "\x1b[36m",
-    reset:          "\x1b[0m"
+    orangeBgColor: "\x1b[7m\x1b[33m",
+    redBgColor: "\x1b[41m\x1b[37m\x1b[5m",
+    greenBgColor: "\x1b[32m\x1b[7m",
+    redColor: "\x1b[31m",
+    greenColor: "\x1b[32m",
+    orangeColor: "\x1b[33m",
+    lightblueColor: "\x1b[36m",
+    reset: "\x1b[0m"
   };
 
   return style[color] + strings.join('') + style.reset;
