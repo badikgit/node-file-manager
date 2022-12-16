@@ -1,27 +1,29 @@
 import { stdin as input, stdout as output } from 'process';
 import readline from 'readline';
 import { homedir } from 'os';
-import { os } from './os.js';
+import { cd } from './cd.js';
 import { ls } from './ls.js';
+import { os } from './os.js';
+import { up } from './up.js';
 import { showError, showQuestion, getColoredPath, showOperationResult } from './utils/messages.js';
 import { parseAnswer } from './utils/parsing.js';
 
-export let WORK_PATH = homedir();
+export const WORK_PATH = {
+  url: homedir(),
+};
 
 export const OPERATIONS = {
   up: {
     argsCount: 0,
-    func: () => console.info("run up"),
+    func: () => up(),
   },
   cd: {
     argsCount: 1,
-    func: () => console.info("run cd"),
+    func: (...newPath) => cd(newPath),
   },
   ls: {
     argsCount: 0,
-    func: () => {
-      return ls()
-    },
+    func: async () => await ls(),
   },
   cat: {
     argsCount: 1,
@@ -45,9 +47,7 @@ export const OPERATIONS = {
   },
   os: {
     argsCount: 1,
-    func: (operation) => {
-      return os(operation)
-    },
+    func: (arg) => os(arg),
   },
   hash: {
     argsCount: 1,
@@ -78,7 +78,7 @@ const startOperations = async (answer) => {
 };
 
 export const runCli = () => {
-  readlineStream.question(showQuestion(getColoredPath(WORK_PATH)), async answer => {
+  readlineStream.question(showQuestion(getColoredPath(WORK_PATH.url)), async answer => {
     if (answer.length) answer = answer.trim();
     if (answer === '.exit') {
       process.exit();
