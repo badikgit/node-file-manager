@@ -23,7 +23,7 @@ export const OPERATIONS = {
   },
   ls: {
     argsCount: 0,
-    func: async () => await ls(),
+    func: () => ls(),
   },
   cat: {
     argsCount: 1,
