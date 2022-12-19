@@ -1,6 +1,7 @@
 import { stdin as input, stdout as output } from 'process';
 import readline from 'readline';
 import { homedir } from 'os';
+import { cat } from './cat.js';
 import { cd } from './cd.js';
 import { ls } from './ls.js';
 import { os } from './os.js';
@@ -27,7 +28,7 @@ export const OPERATIONS = {
   },
   cat: {
     argsCount: 1,
-    func: () => console.info("run ls"),
+    func: async (...pathToFile) => await cat(pathToFile),
   },
   add: {
     argsCount: 1,
