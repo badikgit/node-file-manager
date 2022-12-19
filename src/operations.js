@@ -6,6 +6,7 @@ import { cat } from './cat.js';
 import { cd } from './cd.js';
 import { ls } from './ls.js';
 import { os } from './os.js';
+import { rmf } from './rm.js';
 import { up } from './up.js';
 import { showError, showQuestion, getColoredPath, showOperationResult } from './utils/messages.js';
 import { parseAnswer } from './utils/parsing.js';
@@ -35,8 +36,12 @@ export const OPERATIONS = {
     argsCount: 1,
     func: async (...fileName) => await add(fileName),
   },
-  rn: {
+  rm: {
     argsCount: 1,
+    func: async (...path) => await rmf(path),
+  },
+  rn: {
+    argsCount: 2,
     func: () => console.info("run rn"),
   },
   cp: {
