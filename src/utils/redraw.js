@@ -26,6 +26,10 @@ export const lightblueColor = (...strings) => {
   return redrawText('lightblueColor', strings);
 }
 
+export const reset = (...strings) => {
+  return redrawText('reset', strings);
+}
+
 const redrawText = (color, strings) => {
   const style = {
     orangeBgColor: "\x1b[7m\x1b[33m",

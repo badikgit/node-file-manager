@@ -1,6 +1,7 @@
 import { stdin as input, stdout as output } from 'process';
 import readline from 'readline';
 import { homedir } from 'os';
+import { add } from './add.js';
 import { cat } from './cat.js';
 import { cd } from './cd.js';
 import { ls } from './ls.js';
@@ -32,7 +33,7 @@ export const OPERATIONS = {
   },
   add: {
     argsCount: 1,
-    func: () => console.info("run add"),
+    func: async (...fileName) => await add(fileName),
   },
   rn: {
     argsCount: 1,
