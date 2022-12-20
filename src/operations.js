@@ -4,6 +4,7 @@ import { homedir } from 'os';
 import { add } from './add.js';
 import { cat } from './cat.js';
 import { cd } from './cd.js';
+import { hash } from './hash.js';
 import { ls } from './ls.js';
 import { os } from './os.js';
 import { rmf } from './rm.js';
@@ -58,7 +59,7 @@ export const OPERATIONS = {
   },
   hash: {
     argsCount: 1,
-    func: () => console.info("run hash"),
+    func: async (...path) => await hash(path),
   },
   compress: {
     argsCount: 2,
